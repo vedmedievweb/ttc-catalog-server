@@ -1,7 +1,6 @@
 .DS_Store
 node_modules
 /build
-dist
 server/build
 /package
 .env
