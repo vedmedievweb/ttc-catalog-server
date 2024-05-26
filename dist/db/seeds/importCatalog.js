@@ -84,7 +84,7 @@ function importCatalog(db) {
     }, 1); // Обработка одной строки за раз
     fs_1.default.createReadStream(csvFilePath)
         .pipe((0, csv_parser_1.default)({
-        separator: ';',
+        separator: ';', // Указываем разделитель
         headers: ['id', 'Load_Category_name', 'Load_Type_name', 'example_1', 'example_2', 'industry_reference_1', 'industry_reference_2', 'special_remarks', 'supporting_info']
     }))
         .on('data', (row) => {
