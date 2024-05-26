@@ -82,22 +82,16 @@ export const getCatalog = async (
 
 export const getCatalogItem = (id: string) => {
 	let query = `
-      SELECT
-          c.id AS id,
-          lc.name AS load_category,
-          lt.name AS load_type,
-          c.images,
-          c.industry_images,
-          c.special_remarks,
-          c.supporting_info
-      FROM catalog c
-         	LEFT JOIN load_category lc ON c.load_category_id = lc.id
-         	LEFT JOIN load_type lt ON c.load_type_id = lt.id
-			WHERE catalog.id = ${id}
+      SELECT catalog.id, catalog.load_category_id, catalog.load_type_id, catalog.images, catalog.industry_images, catalog.special_remarks, catalog.supporting_info,
+             load_category.name as load_category, load_type.name as load_type
+      FROM catalog
+               JOIN load_category ON catalog.load_category_id = load_category.id
+               JOIN load_type ON catalog.load_type_id = load_type.id
+      WHERE catalog.id = ?
   `;
 	
 	return new Promise((resolve, reject) => {
-		db.all(query, [], (err, rows) => {
+		db.get(query, [id], (err, rows) => {
 			if (err) {
 				reject(err);
 			}

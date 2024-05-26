@@ -52,7 +52,7 @@ app.get('/api/catalog', async (req, res) => {
 app.get('/api/catalog/:id', async (req, res) => {
 	try {
 		// @ts-ignore
-		const id: string = req.query.id;
+		const id: string = req.params.id;
 		const data = await getCatalogItem(id);
 		res.json({ message: 'success', data })
 	} catch (error) {

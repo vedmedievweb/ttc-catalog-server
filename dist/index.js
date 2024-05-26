@@ -37,7 +37,7 @@ app.get('/api/catalog', async (req, res) => {
 app.get('/api/catalog/:id', async (req, res) => {
     try {
         // @ts-ignore
-        const id = req.query.id;
+        const id = req.params.id;
         const data = await (0, catalog_1.getCatalogItem)(id);
         res.json({ message: 'success', data });
     }
