@@ -63,9 +63,6 @@ app.get('/api/load_data/load_types', async (req, res) => {
         res.status(500).json({ error });
     }
 });
-app.get('/api/check', (req, res) => {
-    res.json({ message: 'server is okay!' });
-});
 app.listen(PORT, () => {
     console.log(`Server is running on PORT:${PORT}`);
 });

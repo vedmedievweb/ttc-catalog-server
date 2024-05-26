@@ -107,7 +107,7 @@ export const getCatalogItem = (id: string) => {
 }
 
 export const getLoadTypes = async () => {
-	const query = 'SELECT id, name FROM load_type';
+	const query = 'SELECT id, name FROM load_type ORDER BY name ASC';
 	return new Promise((resolve, reject) => {
 		db.all(query, [], (err, rows) => {
 			if (err) {
@@ -119,7 +119,7 @@ export const getLoadTypes = async () => {
 }
 
 export const getLoadCategories = async () => {
-	const query = 'SELECT id, name FROM load_category';
+	const query = 'SELECT id, name FROM load_category ORDER BY name ASC';
 	return new Promise((resolve, reject) => {
 		db.all(query, [], (err, rows) => {
 			if (err) {
