@@ -78,7 +78,7 @@ app.get('/api/load_data/load_types', async (req, res) => {
 	}
 });
 
-app.get('/check', (req, res) => {
+app.get('/api/check', (req, res) => {
 	res.json({ message: 'server is okay!' })
 });
 
